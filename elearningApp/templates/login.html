@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+<h1 class="text-center">Login Here</h1>
+<div class="container">
+    <form action="login" method="post">
+        {% csrf_token %}
+          <input type="text" name="username" placeholder="User Name">
+        <br>  
+          <input type="password" name="password" placeholder="Password">  
+        <br>
+        <input type="submit"/>
+        <p>Don't have an account yet ? <a href="{% url 'register' %}">Sign Up</a></p>
+    </form>
+</div>
+<div>
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+  <div>
+{% endblock content %}
+
